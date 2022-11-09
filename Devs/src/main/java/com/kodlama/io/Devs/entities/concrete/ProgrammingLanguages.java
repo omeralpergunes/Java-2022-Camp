@@ -3,37 +3,23 @@ package com.kodlama.io.Devs.entities.concrete;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Data
+@Table(name = "programming_languages")
 public class ProgrammingLanguages {
-
-    public ProgrammingLanguages() {
-    }
-
-    public ProgrammingLanguages(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "programming_language_id")
+    private int programmingLanguageId;
 
-    private String name;
+    @Column
+    private String programmingLanguagesName;
 
-    public int getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "programmingLanguages")
+    private List<SubTechnology> subTechnologies;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
+

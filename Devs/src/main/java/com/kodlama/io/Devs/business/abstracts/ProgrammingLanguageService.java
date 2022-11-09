@@ -1,17 +1,19 @@
 package com.kodlama.io.Devs.business.abstracts;
 
+import com.kodlama.io.Devs.business.requests.pLanguage.DeletePLanguageRequestDto;
+import com.kodlama.io.Devs.business.requests.pLanguage.SavePLanguageRequestDto;
+import com.kodlama.io.Devs.business.requests.pLanguage.UpdatePLanguageRequestDto;
+import com.kodlama.io.Devs.business.requests.subTechnologies.UpdateSubTechnologyRequestDto;
+import com.kodlama.io.Devs.business.responses.GetAllPLanguagesResponseDto;
 import com.kodlama.io.Devs.entities.concrete.ProgrammingLanguages;
 
 import java.util.List;
 
 public interface ProgrammingLanguageService {
 
-    List<ProgrammingLanguages> getAll();
-
-    boolean isBlank(ProgrammingLanguages programmingLanguages);
-    boolean isExist(ProgrammingLanguages programmingLanguages);
+    List<GetAllPLanguagesResponseDto> getAll();
     ProgrammingLanguages getById(int id);
-    void add(ProgrammingLanguages programmingLanguages) throws Exception;
-    void update (int id);
-    void delete(ProgrammingLanguages programmingLanguages);
+    void add(SavePLanguageRequestDto savePLanguageRequestDto) throws Exception;
+    void update (UpdatePLanguageRequestDto updatePLanguageRequestDto,  int id) throws Exception;
+    void delete(DeletePLanguageRequestDto deletePLanguageRequestDto, int id);
 }
